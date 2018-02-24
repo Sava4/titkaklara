@@ -3,8 +3,6 @@
 
 (enable-console-print!)
 
-(println "This text is printed from src/titkaklara/core.cljs. Go ahead and edit it and see reloading in action.")
-
 ;; define your app data so that it doesn't get over-written on reload
 
 (defonce app-state (atom {:text "Hello world!"}))
@@ -15,7 +13,29 @@
    [:h1 (:text @app-state)]
    [:h3 "Edit this and watch it change!"]])
 
-(reagent/render-component [hello-world]
+(defn pirojok []
+  [:div.tile.is-4.is-parent
+    [:div.tile.is-child.box
+      [:div.content
+        [:p [:strong "Пирожок с персиком"]]
+        [:nav.level.is-mobile
+          [:div.level-left
+            [:div.level-item
+              [:a.level-item [:span.icon.is-small [:i.fas.fa-heart]]]
+              [:p.level-item [:strong "15" " ₴"]]]]
+          [:div.level-right
+            [:div.level-item
+              [:a.button.is-primary [:span [:strong "В корзину "] 
+                                          [:i.fas.fa-shopping-cart]]]]]]]]])
+
+
+(defn menu []
+  [:div.tile.is-ancestor
+    [pirojok]
+    [pirojok]
+    [pirojok]])                                         
+
+(reagent/render-component [menu]
                           (. js/document (getElementById "app")))
 
 (defn on-js-reload [])

@@ -37,6 +37,7 @@
 
 ;; FOR to generate rows from menu items
 ;; Map of menu items for state
+;; Navigation bar menu
 
 (reagent/render-component [menu]
                           (. js/document (getElementById "app")))

@@ -14,7 +14,7 @@
    [:h3 "Edit this and watch it change!"]])
 
 (defn pirojok []
-  [:div.tile.is-4.is-parent
+  [:div.tile.is-3.is-parent
     [:div.tile.is-child.box
       [:div.content
         [:p [:strong "Пирожок с персиком"]]

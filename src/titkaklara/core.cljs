@@ -45,6 +45,7 @@
 ;; FOR to generate rows from menu items
 ;; Map of menu items for state
 ;; Navigation bar menu
+;; make Firebase minified advanced in separate branch 
 
 (reagent/render-component [menu]
                           (. js/document (getElementById "app")))

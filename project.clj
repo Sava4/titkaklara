@@ -9,7 +9,7 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.9.946"]
+                 [org.clojure/clojurescript "1.10.64"]
                  [org.clojure/core.async "0.4.474"]
                  [reagent "0.7.0"]]
 
@@ -48,7 +48,9 @@
                 :compiler {:output-to "resources/public/js/compiled/titkaklara.js"
                            :main titkaklara.core
                            :optimizations :advanced
-                           :pretty-print false}}]}
+                           :pretty-print false
+                           :npm-deps {:firebase "4.10.1"}
+                           :install-deps true}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default

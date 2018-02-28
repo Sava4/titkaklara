@@ -1,5 +1,6 @@
 (ns titkaklara.core
-    (:require [reagent.core :as reagent :refer [atom]]))
+    (:require [reagent.core :as reagent :refer [atom]]
+              [firebase]))
 
 (enable-console-print!)
 
@@ -7,6 +8,12 @@
 
 (defonce app-state (atom {:text "Hello world!"}))
 
+(def fdbas
+ (.initializeApp firebase
+    #js {:apiKey "USE_YOUR_KEY"}
+        :authDomain "YOUR_PROJECT.firebaseapp.com"
+        :databaseURL "https://YOUR_PROJECT.firebaseio.com"
+        :storageBucket "YOUR_PROJECT.appspot.com"))
 
 (defn hello-world []
   [:div

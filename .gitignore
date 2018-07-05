@@ -15,3 +15,5 @@ pom.xml
 node_modules
 package-lock.json
 package.json
+.lein-failures
+.rebel_readline_history

@@ -1,6 +1,6 @@
 (ns titkaklara.core
-    (:require [reagent.core :as reagent :refer [atom]]
-              [firebase]))
+    (:require [reagent.core :as reagent :refer [atom]]))
+              ;[firebase-app :as f]))
 
 (enable-console-print!)
 
@@ -8,12 +8,12 @@
 
 (defonce app-state (atom {:text "Hello world!"}))
 
-(def fdbas
- (.initializeApp firebase
-    #js {:apiKey "USE_YOUR_KEY"}
-        :authDomain "YOUR_PROJECT.firebaseapp.com"
-        :databaseURL "https://YOUR_PROJECT.firebaseio.com"
-        :storageBucket "YOUR_PROJECT.appspot.com"))
+;(def fdbas
+ ;(.initializeApp f/firebase
+    ;#js {:apiKey "USE_YOUR_KEY"}
+        ;:authDomain "YOUR_PROJECT.firebaseapp.com"
+        ;:databaseURL "https://YOUR_PROJECT.firebaseio.com"
+        ;:storageBucket "YOUR_PROJECT.appspot.com")
 
 (defn hello-world []
   [:div
@@ -21,9 +21,7 @@
    [:h3 "Edit this and watch it change!"]])
 
 (defn pirojok []
-  [:div.tile.is-3.is-parent
-    [:div.tile.is-child.box
-      [:div.content
+      [:div.box.content
         [:p [:strong "Пирожок с персиком"]]
         [:nav.level.is-mobile
           [:div.level-left
@@ -33,14 +31,21 @@
           [:div.level-right
             [:div.level-item
               [:a.button.is-primary [:span [:strong "В корзину "] 
-                                          [:i.fas.fa-shopping-cart]]]]]]]]])
+                                          [:i.fas.fa-shopping-cart]]]]]]])
 
 
 (defn menu []
-  [:div.tile.is-ancestor
+  [:div.app
+    [pirojok]
+    [pirojok]
+    [pirojok]
+    [pirojok]
     [pirojok]
     [pirojok]
     [pirojok]])                                         
+
+;; TODO FIX bulma css to override last child behaviour with margins
+;;  https://stackoverflow.com/questions/45861491/bulma-overlapping-items
 
 ;; FOR to generate rows from menu items
 ;; Map of menu items for state

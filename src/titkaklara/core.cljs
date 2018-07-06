@@ -21,7 +21,7 @@
    [:h3 "Edit this and watch it change!"]])
 
 (defn pirojok []
-      [:div.box.content
+      [:div.box
         [:p [:strong "Пирожок с персиком"]]
         [:nav.level.is-mobile
           [:div.level-left

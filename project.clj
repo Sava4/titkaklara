@@ -9,7 +9,7 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.145"]
+                 [org.clojure/clojurescript "1.10.339"]
                  [org.clojure/core.async "0.4.474"]
                  [reagent "0.8.1"]]
 
@@ -100,11 +100,13 @@
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
   :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]
                                   [figwheel-sidecar "0.5.16"]
-                                  [com.cemerick/piggieback "0.2.2"]]
+                                  [com.cemerick/piggieback "0.2.2"]
+                                  [org.clojure/tools.nrepl "0.2.13"]]
                    ;; need to add dev source path here to get user.clj loaded
                    :source-paths ["src" "dev"]
                    ;; for CIDER
                    ;; :plugins [[cider/cider-nrepl "0.12.0"]]
+                   :plugins [[cider/cider-nrepl "0.15.1"]]
                    :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
                    ;; need to add the compliled assets to the :clean-targets
                    :clean-targets ^{:protect false} ["resources/public/js/compiled"

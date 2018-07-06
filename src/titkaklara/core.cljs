@@ -59,3 +59,9 @@
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
+
+;; Figwheel startup sequence
+;; lein repl
+;; (use 'figwheel-sidecar.repl-api)
+;; (start-figwheel!)
+;; (cljs-repl)
